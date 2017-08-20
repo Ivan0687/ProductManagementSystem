@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `login` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(256) NOT NULL,
   `username` varchar(45) NOT NULL,
   `registration_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `role` varchar(45) DEFAULT 'USER',

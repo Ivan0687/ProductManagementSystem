@@ -14,7 +14,6 @@
         <dbcp.version>1.4</dbcp.version>
         <hibernate.ver>5.2.10.Final</hibernate.ver>
         <spring.version>4.3.10.RELEASE</spring.version>
-        <spring.jpa>2.0.8</spring.jpa>
         <spring.security.version>4.2.3.RELEASE</spring.security.version>
         <slf4j.version>1.7.25</slf4j.version>
         <servlet.api.version>3.1.0</servlet.api.version>
@@ -26,6 +25,8 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${servlet.api.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -36,6 +37,8 @@
             <artifactId>commons-dbcp</artifactId>
             <version>${dbcp.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -56,11 +59,8 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jpa</artifactId>
-            <version>${spring.jpa}</version>
-        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -81,6 +81,8 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

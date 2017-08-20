@@ -26,7 +26,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
         super.addViewControllers(registry);
     }
 
-    /*
+
     //
     // "view" -> new View("/PATH/TO/view")
     //
@@ -40,5 +40,5 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
         // Give me view name 'users' -> JstlView(/WEB-INF/jps/ + users + .jsp)
         return resolver;
     }
-    */
+
 }
