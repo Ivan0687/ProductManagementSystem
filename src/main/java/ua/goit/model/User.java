@@ -14,9 +14,6 @@ public class User extends BasicEntity {
     @Column
     private String password;
 
-    @Column
-    private String username;
-
     @Column(name = "registration_date")
     private Timestamp registrationDate;
 
@@ -33,7 +30,6 @@ public class User extends BasicEntity {
 
     public User(String login, String username, String password) {
         this.login = login;
-        this.username = username;
         this.password = password;
     }
 
@@ -51,14 +47,6 @@ public class User extends BasicEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Timestamp getRegistrationDate() {
@@ -82,7 +70,6 @@ public class User extends BasicEntity {
         return "User{" +
                 "login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", role=" + role +
                 '}';

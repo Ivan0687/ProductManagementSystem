@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("ua.goit.endpoints")
+@ComponentScan("ua.goit.controllers")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
@@ -23,7 +23,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        super.addViewControllers(registry);
+        registry.addViewController("/registration").setViewName("registration");
     }
 
 

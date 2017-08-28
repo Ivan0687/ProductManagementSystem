@@ -14,25 +14,44 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @ComponentScan("ua.goit.service")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        return super.userDetailsService();
-    }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests().antMatchers("/product/list").hasAnyRole("USER", "ADMIN")
+        http.authorizeRequests()
+                .antMatchers("/", "/login", "/registration", "/register").permitAll()
+                .antMatchers("/product/list", "product/show_all").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/product/**").hasRole("ADMIN")
-                .antMatchers("/register").permitAll()
                 .antMatchers("/**").authenticated()
                 .anyRequest().denyAll()
-                .and()
-                .formLogin();
+            .and()
+                .formLogin()
+                // указываем страницу с формой логина
+                .loginPage("/login")
+                // указываем action с формы логина
+                .loginProcessingUrl("/j_spring_security_check")
+                // указываем URL при неудачном логине
+                .failureUrl("/login?error")
+                // Указываем параметры логина и пароля с формы логина
+                .usernameParameter("j_username")
+                .passwordParameter("j_password")
+                // даем доступ к форме логина всем
+                .permitAll()
+            .and()
+                // разрешаем делать логаут всем
+                .logout().permitAll()
+                // указываем URL логаута
+                .logoutUrl("/logout")
+                // указываем URL при удачном логауте
+                .logoutSuccessUrl("/login?logout")
+                // делаем не валидной текущую сессию
+                .invalidateHttpSession(true)
+            .and()
+                .csrf().disable();
     }
 }
