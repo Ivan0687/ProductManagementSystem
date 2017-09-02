@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
@@ -25,22 +24,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/", "/login", "/registration", "/register").permitAll()
-                .antMatchers("/product/list", "product/show_all").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/product/list", "/product/show_all").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/product/**").hasRole("ADMIN")
                 .antMatchers("/**").authenticated()
                 .anyRequest().denyAll()
             .and()
                 .formLogin()
-                // указываем страницу с формой логина
+                .defaultSuccessUrl("/product/show_all")
                 .loginPage("/login")
-                // указываем action с формы логина
-                .loginProcessingUrl("/j_spring_security_check")
-                // указываем URL при неудачном логине
                 .failureUrl("/login?error")
-                // Указываем параметры логина и пароля с формы логина
-                .usernameParameter("j_username")
-                .passwordParameter("j_password")
-                // даем доступ к форме логина всем
                 .permitAll()
             .and()
                 // разрешаем делать логаут всем

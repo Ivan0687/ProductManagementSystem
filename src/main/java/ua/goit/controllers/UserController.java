@@ -22,7 +22,7 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = {"/", "/login", "/login?logout", "/login?error"})
+    @RequestMapping(method = RequestMethod.GET, value = {"/", "/login"})
     public String loginPage(Model model) {
         return "login";
     }

@@ -6,33 +6,29 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
     <title>Product management system</title>
 </head>
 <body>
-<h1>AAAAAAAAAAAAAAAAAAAAAAAA</h1>
 <div align="center">
-    <c:url value="j_spring_security_check" var="loginUrl"/>
-    <form action="${loginUrl}" method="post">
+    <form action="login" method="post">
         <table align="center">
             <tr>
                 <th>Enter login</th>
                 <td>
-                    <input type="text" name="j_username" placeholder="Login">
+                    <input autofocus type="text" name="username" placeholder="Login">
                 </td>
             </tr>
             <tr>
                 <th>Enter login</th>
                 <td>
-                    <input type="password" name="j_password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </td>
             </tr>
-            <tr align="center">
-                <td>
+            <tr>
+                <td align="center">
                     <button type="submit">Enter</button>
                 </td>
             </tr>

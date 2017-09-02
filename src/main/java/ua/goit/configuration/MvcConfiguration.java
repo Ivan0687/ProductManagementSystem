@@ -24,6 +24,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/registration").setViewName("registration");
+        registry.addViewController("/product/product_add").setViewName("product_add");
     }
 
 
