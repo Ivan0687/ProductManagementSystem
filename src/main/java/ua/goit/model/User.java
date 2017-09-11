@@ -28,7 +28,7 @@ public class User extends BasicEntity {
     public User() {
     }
 
-    public User(String login, String username, String password) {
+    public User(String login, String password) {
         this.login = login;
         this.password = password;
     }

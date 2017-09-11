@@ -3,10 +3,7 @@ package ua.goit.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ua.goit.model.Product;
 import ua.goit.service.ProductService;
@@ -53,7 +50,8 @@ public class ProductController {
         return modelAndView;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+//    @RequestMapping(method = RequestMethod.POST, value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateProduct(@RequestParam("id") Long id,
                                 @RequestParam("name") String name,
                                 @RequestParam("manufacturer") String manufacturer,

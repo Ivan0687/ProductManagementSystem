@@ -64,7 +64,8 @@
                 <td>Cost</td>
                 <td>${product.cost}</td>
                 <td><input type="number" name="dollars" value="${product.cost.intValue()}">dollars
-                    <input type="number" name="cents" value="${product.cost.subtract(product.cost.intValue())*100}", maxlength="2">cents</td>
+                    <input type="number" name="cents"
+                           value="${product.cost.subtract(product.cost.intValue())*100}", maxlength="2">cents</td>
             </tr>
             <tr>
                 <td>Description</td>

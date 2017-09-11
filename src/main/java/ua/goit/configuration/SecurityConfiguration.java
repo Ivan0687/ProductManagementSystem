@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().denyAll()
             .and()
                 .formLogin()
+                //.successForwardUrl("/product/show_all")
                 .defaultSuccessUrl("/product/show_all")
                 .loginPage("/login")
                 .failureUrl("/login?error")

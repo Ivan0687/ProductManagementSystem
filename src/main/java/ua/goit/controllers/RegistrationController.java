@@ -37,7 +37,7 @@ public class RegistrationController {
         return "redirect:/login";
     }
 
-    @ExceptionHandler(IOException.class)
+    @ExceptionHandler(value = IOException.class)
     public ResponseEntity<String> handleIOException(IOException ex) {
         return ResponseEntity.status(HttpStatus.INSUFFICIENT_STORAGE).build();
     }

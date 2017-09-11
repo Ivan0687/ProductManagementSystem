@@ -78,6 +78,8 @@ public class UserDetailedServiceImpl implements UserDetailsService {
         public boolean isEnabled() {
             return true;
         }
+
+        public boolean isMethod(){return true;}
     }
 
 }
