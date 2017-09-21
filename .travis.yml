@@ -1,9 +1,9 @@
 language: java
 
-git:
-  depth: 5
-
-jdk:
-  - oraclejdk8
-  - oraclejdk9
-  - openjdk7
+#git:
+#  depth: 5
+#
+#jdk:
+#  - oraclejdk8
+#  - oraclejdk9
+#  - openjdk7
