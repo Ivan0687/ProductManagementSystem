@@ -41,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // указываем URL логаута
                 .logoutUrl("/logout")
                 // указываем URL при удачном логауте
-//                .logoutSuccessUrl("/login?logout")
+                .logoutSuccessUrl("/")
                 // делаем не валидной текущую сессию
                 .invalidateHttpSession(true)
             .and()
