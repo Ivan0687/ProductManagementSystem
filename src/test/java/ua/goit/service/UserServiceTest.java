@@ -8,8 +8,7 @@ import ua.goit.dao.impl.UserDaoImpl;
 import ua.goit.model.User;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @Ignore
 public class UserServiceTest {
@@ -30,20 +29,22 @@ public class UserServiceTest {
     }
 
     @Test
-    public void userNotExists(){
+    public void userNotExists() {
         when(userDao.getById(wrongId, User.class)).thenReturn(null);
         assertNull(userService.getById(wrongId));
     }
 
     @Test
-    public void getById(){
+    public void getById() {
         when(userDao.getById(rightId, User.class)).thenReturn(user);
         assertEquals(user, userService.getById(rightId));
     }
 
     @Test
     public void getAll() throws Exception {
-
+        doAnswer(i -> null).when(userDao).getAll(User.class);
+        userDao.getAll(User.class);
+        verify(userDao, times(1)).getAll(User.class);
     }
 
     @Test
