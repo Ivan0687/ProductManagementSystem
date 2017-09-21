@@ -1,4 +1,4 @@
 # ProductManagementSystem
 
-This is homework of boiko Ivan, student of goJava 6
+This is homework of Boiko Ivan, student of goJava 6
 
