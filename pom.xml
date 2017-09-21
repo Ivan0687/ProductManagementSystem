@@ -133,6 +133,15 @@
             <version>${spring.security.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.apache.shiro/shiro-all &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.shiro</groupId>-->
+            <!--<artifactId>shiro-all</artifactId>-->
+            <!--<version>1.4.0</version>-->
+            <!--<type>pom</type>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>

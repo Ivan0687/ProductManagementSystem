@@ -43,6 +43,18 @@
 </head>
 <body>
 <div align="center">
+    <h2>Вы вошли как: <sec:authentication property="principal.username"/></h2>
+    <h2>Registration date: <sec:authentication property="principal.registrationDate"/></h2>
+    <h2>Email of user: <sec:authentication property="principal.email"/></h2>
+
+    <%--<c:set var="login" value="q" scope="session"/>--%>
+    <c:set var="login">
+        <sec:authentication property="principal.username"/>
+    </c:set>
+    <c:if test = "${'admin' eq login}">
+         You are ADMIN
+    </c:if>
+    
     <table border="bold" id="products">
         <caption><h1>List of all products</h1></caption>
         <tr>

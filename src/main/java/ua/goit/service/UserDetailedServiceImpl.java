@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ua.goit.model.User;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -79,7 +80,21 @@ public class UserDetailedServiceImpl implements UserDetailsService {
             return true;
         }
 
-        public boolean isMethod(){return true;}
+        public String getRegistrationDate(){
+            return user.getRegistrationDate().toString();
+        }
+
+        public String getEmail (){
+            return user.getLogin() + "@email.com";
+        }
+
+        @Override
+        public String toString() {
+            return "UserDetailsWrapper{" +
+                    "user=" + user +
+                    ", grantedAuthorities=" + grantedAuthorities +
+                    '}';
+        }
     }
 
 }

@@ -1,12 +1,14 @@
 package ua.goit.service;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import ua.goit.model.User;
 
 import static org.mockito.Mockito.mock;
 
+@Ignore
 public class UserDetailedServiceImplTest {
 
     private User user;

@@ -1,6 +1,7 @@
 package ua.goit.service;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import ua.goit.dao.UserDao;
 import ua.goit.dao.impl.UserDaoImpl;
@@ -10,6 +11,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@Ignore
 public class UserServiceTest {
 
     private User user;
