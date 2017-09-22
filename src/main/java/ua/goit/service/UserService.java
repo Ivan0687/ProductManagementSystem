@@ -1,6 +1,7 @@
 package ua.goit.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.goit.dao.UserDao;
@@ -13,9 +14,12 @@ public class UserService {
 
     private UserDao userDao;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
-    public UserService(UserDao userDao) {
+    public UserService(UserDao userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Transactional(readOnly = true)
@@ -30,6 +34,7 @@ public class UserService {
 
     @Transactional
     public void save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.save(user);
     }
 

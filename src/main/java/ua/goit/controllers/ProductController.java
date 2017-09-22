@@ -1,5 +1,6 @@
 package ua.goit.controllers;
 
+import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -34,14 +35,14 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/product_delete/id={id}")
-    public String deleteProduct(@PathVariable("id") String id) {
+    public String deleteProduct(@PathVariable("id") @NotNull String id) {
         Product product = productService.getById(Long.parseLong(id));
         productService.remove(product);
         return "redirect:/product/show_all";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/product_update/id={id}")
-    public ModelAndView updateProduct(@PathVariable("id") String id) {
+    public ModelAndView updateProduct(@PathVariable("id") @NotNull String id) {
         ModelAndView modelAndView = new ModelAndView();
         Product product = productService.getById(Long.parseLong(id));
         modelAndView.setViewName("product_update");
@@ -52,8 +53,8 @@ public class ProductController {
 
 //    @RequestMapping(method = RequestMethod.POST, value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String updateProduct(@RequestParam("id") Long id,
-                                @RequestParam("name") String name,
+    public String updateProduct(@RequestParam("id") @NotNull Long id,
+                                @RequestParam("name") @NotNull String name,
                                 @RequestParam("manufacturer") String manufacturer,
                                 @RequestParam("dollars") Integer dollars,
                                 @RequestParam("cents") Integer cents,
@@ -72,7 +73,7 @@ public class ProductController {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String createProduct(@RequestParam("name") String name,
+    public String createProduct(@RequestParam("name") @NotNull String name,
                                 @RequestParam("manufacturer") String manufacturer,
                                 @RequestParam("dollars") Integer dollars,
                                 @RequestParam("cents") Integer cents,
