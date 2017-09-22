@@ -1,8 +1,10 @@
 package ua.goit.controllers;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import ua.goit.model.User;
 import ua.goit.service.UserService;
 
@@ -17,8 +19,8 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String registerUser(@RequestParam("login") @NotNull String login,
-                               @RequestParam("password") @NotNull String password) {
+    public String registerUser(@RequestParam("login") String login,
+                               @RequestParam("password") String password) {
         User user = new User(login, password);
         user.setRole(User.Roles.USER);
             userService.save(user);

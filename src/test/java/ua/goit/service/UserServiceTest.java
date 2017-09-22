@@ -1,8 +1,6 @@
 package ua.goit.service;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ua.goit.dao.UserDao;
@@ -11,10 +9,10 @@ import ua.goit.model.User;
 
 import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
-@Ignore
 public class UserServiceTest {
 
     private User user;
