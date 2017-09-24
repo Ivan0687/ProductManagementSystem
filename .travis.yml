@@ -1,6 +1,6 @@
 language: java
-deploy:
-  provider: heroku
-  api_key:
-    secure: $HEROKU_API_KEY
-    app: boiko-ivan-product-management-system
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: $HEROKU_API_KEY
+#    app: boiko-ivan-product-management-system
