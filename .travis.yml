@@ -2,5 +2,5 @@ language: java
 #deploy:
 #  provider: heroku
 #  api_key:
-#    secure: xspKZQZYydSfQzgQpRXWIUORBgWgPf1fgxLEviRAU8rEyNLjnfl28bNBR8/YB/M4nDz1SwI4swbYDBXo2rL0hoCm2l4drEpC+u3xe4K8aUqbtomluEq577HOtCRSIOlJek7wQ/dSeED0rL/bUq2uM5cZuAzBttc7xiejA9uXqvMxJiE3m+ucIPwR6e0+S6izIfXMTOkyO3uH15W0ITdEp9n/IirRy8E//6GHWNmfPvU5DM/pTeOhhQispPI8y5z8fIYVAByHale2zxaFLiFMCkErPXJEoAbNt0ONJ6SfTGXVwh+VXi/+tq2Khlwn9AfubSaJlJtl7jqzutmJcQ21XOtLmctv8uhPgdVjUw0YQ6d8gjOZgTX10OCxUlyqVrwcy+Vq8t4QwKqq7Nv2neISgFdLE5AATYDC2MwmLsqFD5i4DFDd7JNqsa730GO1YWWpOV2nTNLSlbVnbqINQnlsRDHAT6GK6M2aiEqZFL8tRZn1RjDFmilhD4bFNlG2R/XmahS4SFVvK3iJEK36z5xP3NfSEpFaqpYxS886YCBZ4mwL+UFvFnVRDZCju+uTjhwKF6cGpDw16mcmLeDZUqnzg8p/bPfZPxskFtVkw9xt8xZJE94TBQfzt7r4RBg1c8zu5uzURwI29DE+F5RWkc8b5e+5NecAxg8brEUanm3JfDk=
+#    secure: $HEROKU_API_KEY
 #    app: boiko-ivan-product-management-system
