@@ -19,8 +19,10 @@ import ua.goit.controllers.configuration.TestControllersConfiguration;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.anonymous;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
@@ -43,21 +45,20 @@ public class RegistrationControllerTest {
                 .build();
     }
 
-    @Ignore
+    @Test
+    public void registrationFormGuestTest() throws Exception {
+
+        mvc.perform(get("/registration").with(anonymous()))
+                .andExpect(view().name("registration"))
+                .andExpect(status().isOk());
+    }
+
     @Test
     public void registerGuestTest() throws Exception {
 
-        mvc.perform(post("/register").with(anonymous()))
-                .andExpect(redirectedUrl("/login"))
-                .andExpect(status().isOk());
+        mvc.perform(post("register").with(anonymous()))
+                .andExpect(redirectedUrl("http://localhost/login"))
+                .andExpect(status().isFound());
     }
 
-    @Ignore
-    @Test
-    public void registerUserTest() throws Exception {
-
-        mvc.perform(post("/register").with(user("test").roles("USER", "ADMIN")))
-                .andExpect(redirectedUrl("/login"))
-                .andExpect(status().isOk());
-    }
 }
