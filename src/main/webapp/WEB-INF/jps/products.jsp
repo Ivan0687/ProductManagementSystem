@@ -12,34 +12,36 @@
 <html>
 <head>
     <title>Show all products</title>
-    <style>
-        #products {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 80%;
-        }
+    <link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet">
 
-        #products td, #products th {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
+    <%--<style>--%>
+        <%--#products {--%>
+            <%--font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;--%>
+            <%--border-collapse: collapse;--%>
+            <%--width: 80%;--%>
+        <%--}--%>
 
-        #products tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+        <%--#products td, #products th {--%>
+            <%--border: 1px solid #ddd;--%>
+            <%--padding: 8px;--%>
+        <%--}--%>
 
-        #products tr:hover {
-            background-color: #ddd;
-        }
+        <%--#products tr:nth-child(even) {--%>
+            <%--background-color: #f2f2f2;--%>
+        <%--}--%>
 
-        #products th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
+        <%--#products tr:hover {--%>
+            <%--background-color: #ddd;--%>
+        <%--}--%>
+
+        <%--#products th {--%>
+            <%--padding-top: 12px;--%>
+            <%--padding-bottom: 12px;--%>
+            <%--text-align: left;--%>
+            <%--background-color: #4CAF50;--%>
+            <%--color: white;--%>
+        <%--}--%>
+    <%--</style>--%>
 </head>
 <body>
 <div align="center">
@@ -47,7 +49,6 @@
     <h2>Registration date: <sec:authentication property="principal.registrationDate"/></h2>
     <h2>Email of user: <sec:authentication property="principal.email"/></h2>
 
-    <%--<c:set var="login" value="q" scope="session"/>--%>
     <c:set var="login">
         <sec:authentication property="principal.username"/>
     </c:set>
@@ -88,7 +89,7 @@
     </table>
     <sec:authorize access="hasRole('ADMIN')">
         <div align="center">
-            <form action="/product/product_add" method="get">
+            <form action="${pageContext.request.contextPath}/product/product_add" method="get">
                 <input type="submit" value="Add product">
             </form>
         </div>

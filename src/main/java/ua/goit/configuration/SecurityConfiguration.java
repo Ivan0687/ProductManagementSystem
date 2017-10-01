@@ -23,10 +23,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
+                .antMatchers("/*.css").permitAll()
                 .antMatchers("/", "/login", "/registration", "/register").permitAll()
                 .antMatchers("/product/list", "/product/show_all").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/product/**").hasRole("ADMIN")
-                .antMatchers("/**").authenticated()
                 .anyRequest().denyAll()
             .and()
                 .formLogin()
