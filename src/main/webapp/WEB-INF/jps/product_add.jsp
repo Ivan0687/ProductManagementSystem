@@ -12,7 +12,7 @@
 </head>
 <body>
 <div>
-    <form action="/product/create" method="post">
+    <form action="${pageContext.request.contextPath}/product/create" method="post">
         <table align="center">
             <tr>
                 <th>Enter name of product</th>

@@ -6,14 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Product management system</title>
 </head>
 <body>
+
 <div align="center">
-    <form action="login" method="post">
+    <sec:authorize access="isAuthenticated()">
+        <h1>You are authorized</h1>
+    </sec:authorize>
+
+    <sec:authorize access="isAnonymous()">
+        <h1>You are not authorized</h1>
+    </sec:authorize>
+</div>
+
+<div align="center">
+    <form action="${pageContext.request.contextPath}/login" method="post">
         <table align="center">
             <tr>
                 <th>Enter login</th>
@@ -36,7 +48,7 @@
     </form>
 </div>
 <div align="center">
-    <form action="/registration" method="get">
+    <form action="${pageContext.request.contextPath}/registration" method="get">
         <input type="submit" value="Registration">
     </form>
 </div>

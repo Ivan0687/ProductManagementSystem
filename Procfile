@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -war target/*.war -Dspring.profiles.active=prod
+web:    java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war

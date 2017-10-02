@@ -14,34 +14,7 @@
     <title>Show all products</title>
     <link href="${pageContext.request.contextPath}/styles.css" rel="stylesheet">
 
-    <%--<style>--%>
-        <%--#products {--%>
-            <%--font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;--%>
-            <%--border-collapse: collapse;--%>
-            <%--width: 80%;--%>
-        <%--}--%>
 
-        <%--#products td, #products th {--%>
-            <%--border: 1px solid #ddd;--%>
-            <%--padding: 8px;--%>
-        <%--}--%>
-
-        <%--#products tr:nth-child(even) {--%>
-            <%--background-color: #f2f2f2;--%>
-        <%--}--%>
-
-        <%--#products tr:hover {--%>
-            <%--background-color: #ddd;--%>
-        <%--}--%>
-
-        <%--#products th {--%>
-            <%--padding-top: 12px;--%>
-            <%--padding-bottom: 12px;--%>
-            <%--text-align: left;--%>
-            <%--background-color: #4CAF50;--%>
-            <%--color: white;--%>
-        <%--}--%>
-    <%--</style>--%>
 </head>
 <body>
 <div align="center">
@@ -55,7 +28,8 @@
     <c:if test = "${'admin' eq login}">
          You are ADMIN
     </c:if>
-    
+
+
     <table border="bold" id="products">
         <caption><h1>List of all products</h1></caption>
         <tr>
@@ -77,10 +51,10 @@
                 <td>${product.cost}</td>
                 <td>${product.description}</td>
                 <sec:authorize access="hasRole('ADMIN')">
-                    <td><form action="/product/product_update/id=${product.id}" method="get">
+                    <td><form action="${pageContext.request.contextPath}/product/product_update/id=${product.id}" method="get">
                         <input type="submit" value="Update product">
                     </form></td>
-                    <td><form action="/product/product_delete/id=${product.id}" method="get">
+                    <td><form action="${pageContext.request.contextPath}/product/product_delete/id=${product.id}" method="get">
                         <input type="submit" value="Delete product">
                     </form></td>
                 </sec:authorize>
@@ -95,7 +69,7 @@
         </div>
     </sec:authorize>
     <div align="center">
-        <form action="/logout" method="post">
+        <form action="${pageContext.request.contextPath}/logout" method="post">
             <input type="submit" value="Logout">
         </form>
     </div>
