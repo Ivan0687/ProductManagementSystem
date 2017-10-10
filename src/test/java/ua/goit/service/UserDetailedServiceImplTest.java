@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ua.goit.model.User;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -48,7 +49,18 @@ public class UserDetailedServiceImplTest {
         assertNotNull(details);
     }
 
+    @Ignore
+    @Test
+    public void loadUserByUsernameReturn() throws Exception {
 
+        user = mock(User.class);
+
+        when(userService.getById(anyString())).thenReturn(user);
+
+        UserDetails details = userDetailsService.loadUserByUsername(anyString());
+
+        assertEquals(details, userDetailsService.loadUserByUsername(anyString()));
+    }
 
     @Test(expected = UsernameNotFoundException.class)
     public void loadUserByUsernameAUserIsNull() {

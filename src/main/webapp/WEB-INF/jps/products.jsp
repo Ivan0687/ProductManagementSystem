@@ -29,6 +29,10 @@
          You are ADMIN
     </c:if>
 
+    <c:forEach var="qqq" begin="1" end="10" step="2" >
+        ${qqq}
+    </c:forEach>
+
 
     <table border="bold" id="products">
         <caption><h1>List of all products</h1></caption>
